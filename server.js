@@ -33,13 +33,13 @@ app.set("view engine", "handlebars");
 
 // Routes
 // =============================================================
-const postController = require("./controllers/post-controller.js");
-const authorController = require("./controllers/author-controller.js");
-const viewController = require("./controllers/view-controller.js");
+const itemController = require("./controllers/item-controller.js");
+const userController = require("./controllers/user-controller.js");
+const transController = require("./controllers/transaction-controller.js");
 
-app.use(postController);
-app.use(authorController);
-app.use(viewController);
+app.use(itemController);
+app.use(userController);
+app.use(transController);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
