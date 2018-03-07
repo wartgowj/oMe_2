@@ -1,3 +1,18 @@
+.headerNav, .page-footer {
+  background-color: black;
+}
+
+.navBarImage {
+  max-height: 90%;
+}
+
+.page-footer {
+  text-align: center;
+}
+
+.signUp, .loginDiv {
+  margin-left: 5%;
+}
 button.submit {
   float: right;
 }
