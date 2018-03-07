@@ -2,15 +2,8 @@ $(document).ready(function() {
     //Click events
     $(document).on("click", "button.addBorrow", handleAddBorrow);
     $(document).on("click", "button.addLend", handleAddLend);
-    $(document).on("click", "button.borrow", handleAddBorrow);
-    $(document).on("click", "button.lend", handleAddLend);
-
-
-    $('.borrow').modal('open');
-
-
-
-
+    // $(document).on("click", "button.borrow", handleAddBorrow);
+    // $(document).on("click", "button.lend", handleAddLend);
 
     function handleAddBorrow(event) {
         event.preventDefault();

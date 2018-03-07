@@ -8,18 +8,23 @@ $(document).ready(function () {
 
     function handleNewUser(event){
         event.preventDefault();
+        //checks that username was entered
         if (!username.val().trim()) {
-            console.log("username not entered!");
+            alert("username not entered!");
             return;
         }
+        //checks that password was entered
         if (!password.val().trim()) {
-            console.log("passwords not entered!");
+            alert("passwords not entered!");
             return;
         }
+        //makes sure passwords match
         if (password.val().trim() != passwordCheck.val().trim()) {
-            console.log("passwords do not match!");
+            alert("passwords do not match!");
             return;
         }
-        console.log("user added");
+        //if everything checks out stores username and password into session storage
+        sessionStorage.username = username.val().trim();
+        sessionStorage.password = password.val().trim();
     }
 });
