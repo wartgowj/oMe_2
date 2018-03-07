@@ -1,7 +1,7 @@
 {
-  "name": "post-author-association",
+  "name": "oMe",
   "version": "1.0.0",
-  "description": "",
+  "description": "track who you owe and who owes you",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
     "watch": "nodemon server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "lunch-beer inc",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
