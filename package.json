@@ -1,7 +1,7 @@
 {
   "name": "oMe",
   "version": "1.0.0",
-  "description": "track who you owe and who owe's you",
+  "description": "track who you owe and who owes you",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
