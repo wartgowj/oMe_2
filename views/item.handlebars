@@ -1,6 +1,4 @@
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-<script src="js/item.js" type="text/javascript"></script> 
+<script src="js/item.js" type="text/javascript"></script>
 
 
 <div class="container">
@@ -32,7 +30,7 @@
         </tbody>
       </table>
 
-      <a class="waves-effect waves-light btn" class="waves-effect waves-light btn modal-trigger" href="#addLend">button</a>
+      <a class="waves-effect waves-light btn modal-trigger" href="#addLend">Lend</a>
 
 
 <h1>Items You Have Borrowed</h1>
@@ -63,5 +61,95 @@
         </tbody>
       </table>
 
-      <a class="waves-effect waves-light btn" class="waves-effect waves-light btn modal-trigger" href="#addborrow">button</a>
+      <a class="waves-effect waves-light btn modal-trigger" href="#addBorrow">Borrow</a>
 </div>
+
+<div id="addBorrow" class="modal">
+    <div class="modal-content">
+        <h4>Add a Borrowed Item or not...</h4>
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s8">
+                        <i class="material-icons prefix">phone</i>
+                        <input placeholder="Placeholder" id="itemBorrow" type="text" class="validate">
+                        <label for="itemBorrow">item that you might return ...</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <select>
+                            <option value="" disabled selected>what is this item?</option>
+                            <option value="1">Thing</option>
+                            <option value="2">Favor</option>
+                            <option value="3">Money</option>
+                        </select>
+                        <label>Materialize Select</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="owner" type="text" class="validate">
+                        <label for="owner">the person that has graciously allowed you to borrow...</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="dueDate" type="text" class="datepicker">
+                        <label for="dueDate">The day you may return this.....ha</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button href="#!" class="modal-action modal-close waves-effect waves-green btn-flat borrow">Add Now</button>
+    </div>
+</div>
+
+<div id="addLend" class="modal">
+    <div class="modal-content">
+        <h4>Lend an item that you probably won't get back...</h4>
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s8">
+                        <i class="material-icons prefix">phone</i>
+                        <input placeholder="Placeholder" id="itemBorrow" type="text" class="validate">
+                        <label for="itemBorrow">item that you might return ...</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <select>
+                            <option value="" disabled selected>what is this item?</option>
+                            <option value="1">Thing</option>
+                            <option value="2">Favor</option>
+                            <option value="3">Money</option>
+                        </select>
+                        <label>Materialize Select</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="owner" type="text" class="validate">
+                        <label for="owner">lowlife you call a friend that is borrowing this item...</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="dueDate" type="text" class="datepicker">
+                        <label for="dueDate">One day in the future that you might get this back</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button href="#!" class="modal-action modal-close waves-effect waves-green btn-flat lend">Add Now</button>
+    </div>
+</div>
+<script src="js/transaction.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+        $('.modal').modal();
+        // $('#addBorrow').modal('open');
+        // $('#addLend').modal('open');
+    });
+
+</script>
