@@ -3,6 +3,7 @@
 }
 
 .navBarImage {
+  display: block;
   max-height: 90%;
 }
 
@@ -10,9 +11,19 @@
   text-align: center;
 }
 
+.mainPageDiv {
+  width: 100%;
+}
+
+.mainPageLogo {
+    display: table;
+    margin: 0 auto;
+}
+
 .signUp, .loginDiv {
   margin-left: 5%;
 }
+
 button.submit {
   float: right;
 }
