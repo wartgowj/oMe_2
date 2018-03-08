@@ -6,19 +6,11 @@ const router = express.Router();
 
 // Routes
 // =============================================================
-router.get("/api/users", function (req, res) {
-    db.User.findAll({
+router.get("/item", function (req, res) {
+    db.Item.findAll({
 
     }).then(function (dbData) {
-        res.json(dbData);
-    });
-});
-
-router.get("/api/items", function (req, res) {
-    db.Transaction.findAll({
-
-    }).then(function (dbData) {
-        res.json(dbData);
+        res.render("userView",{Item : dbData});
     });
 });
 

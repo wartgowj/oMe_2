@@ -12,23 +12,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Alvin</td>
-                <td>Hammer</td>
-                <td>4/12/2018</td>
-            </tr>
-            <tr>
-                <td>sam</td>
-                <td>Lawn Mower</td>
-                <td>3/16/2018</td>
-            </tr>
-            <tr>
-                <td>charlie</td>
-                <td>Eclair</td>
-                <td>1/16/2018</td>
-            </tr>
+                     {{#each Item}}
+                    <tr>
+                        <td>{{this.owner_id}}</td>
+                        <td>{{this.name}}</td>
+                        <td>{{this.createdAt}}</td>
+                    </tr>
+                    {{/each}}
         </tbody>
     </table>
+
 
         <a class="waves-effect waves-light btn modal-trigger" href="#addBorrow">borrow</a>
 
