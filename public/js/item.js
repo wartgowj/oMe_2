@@ -1,15 +1,20 @@
 $(document).ready(function() {
     
     getAuthors();
-
+    getItems();
 
     function getAuthors() {
-        $.get("/item", function (data) {
+        $.get("/api/users", function (data) {
            console.log(data)
         });
     }
 
-
+    function getItems() {
+        $.get("/api/items", function (data) {
+            console.log(data)
+        });
+    }
+   
 
     // function createAuthorRow(authorData) {
     //     console.log(authorData);

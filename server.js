@@ -60,13 +60,16 @@ db.sequelize.sync().then(function() {
 // }
 
 // function createTransaction() {
-//   db.Item.create({
-//     name: 'cellphone',
-//     type: 'money',
-//     is_borrowed: true,
-//     owner_id: 3
+//   db.Transaction.create({
+//     owner_id: 1,
+//     borrower_id: 2,
+//     item_id: 6,
+//     due_date: '04/20/2018',
+//     is_returned: false,
+
 //   });
 // }
+
 
 
 
