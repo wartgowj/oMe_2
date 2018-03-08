@@ -33,13 +33,15 @@ app.set("view engine", "handlebars");
 
 // Routes
 // =============================================================
+
 const userController = require("./controllers/user-controller.js");
 const transController = require("./controllers/transaction-controller.js");
 const viewController = require("./controllers/view-controller.js");
 
-// app.use(itemController);
+
+
 app.use(userController);
-// app.use(transController);
+app.use(transController);
 app.use(viewController);
 
 // Syncing our sequelize models and then starting our Express app
@@ -49,3 +51,26 @@ db.sequelize.sync().then(function() {
     console.log("App listening on PORT " + PORT);
   });
 });
+
+// function usersCreate() {
+//   db.User.create({
+//     name: 'Jaime', 
+//     password: '12345',
+//     image: "image"});
+// }
+
+// function createTransaction() {
+//   db.Item.create({
+//     name: 'cellphone',
+//     type: 'money',
+//     is_borrowed: true,
+//     owner_id: 3
+//   });
+// }
+
+
+
+// createTransaction()
+
+
+// usersCreate();

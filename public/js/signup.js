@@ -44,12 +44,14 @@ $(document).ready(function () {
     function insertUser(userData) {
         userRoute = "/" + username.val();
         $.post("/api/adduser", userData)
-        .then(getUserView());
+        .then(getUserView(userRoute));
     }
 
-    function getUserView() {
-        $.get("/user", function(data) {
-        });
+    function getUserView(userRoute) {
+        window.location.href = userRoute;
+        // $.get("/user", function(data) {
+         
+        // });
       }
 });
 
