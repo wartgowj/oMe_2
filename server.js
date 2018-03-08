@@ -33,13 +33,12 @@ app.set("view engine", "handlebars");
 
 // Routes
 // =============================================================
-// const itemController = require("./controllers/item-controller.js");
-// const userController = require("./controllers/user-controller.js");
-// const transController = require("./controllers/transaction-controller.js");
+const userController = require("./controllers/user-controller.js");
+const transController = require("./controllers/transaction-controller.js");
 const viewController = require("./controllers/view-controller.js");
 
 // app.use(itemController);
-// app.use(userController);
+app.use(userController);
 // app.use(transController);
 app.use(viewController);
 
