@@ -7,13 +7,13 @@ const router = express.Router();
 // Routes
 // =============================================================
 router.post("/:user/addBorrow", function (req, res) {
-    db.Trnsaction.create(req.body).then(function (dbTrans) {
+    db.Transaction.create(req.body).then(function (dbTrans) {
         res.json(dbTrans);
     });
 });
 
 router.post("/:user/addLend", function (req, res) {
-    db.Trnsaction.create(req.body).then(function (dbTrans) {
+    db.Transaction.create(req.body).then(function (dbTrans) {
         res.json(dbTrans);
     });
 });
