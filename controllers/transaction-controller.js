@@ -14,8 +14,6 @@ router.get("/item", function (req, res) {
     });
 });
 
-
-
 router.post("/api/authors", function (req, res) {
     // Create an Author with the data available to us in req.body
     console.log(req.body);
