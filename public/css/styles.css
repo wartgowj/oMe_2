@@ -4,20 +4,42 @@
 
 .navBarImage {
   display: block;
-  max-height: 90%;
+}
+
+.navImage {
+  max-height: 50px;
+
 }
 
 .page-footer {
   text-align: center;
 }
 
-.mainPageDiv {
-  width: 100%;
+.indexPageDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
-.mainPageLogo {
-    display: table;
-    margin: 0 auto;
+.indexPageDiv img {
+  max-width: 100%;
+}
+
+.indexButtons {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 3%;
+}
+
+
+.loginButton, .signUpButton {
+  margin: 10px;
+}
+
+.btn {
+  background-color: #f7c800;
 }
 
 .signUp, .loginDiv {
@@ -28,42 +50,12 @@ button.submit {
   float: right;
 }
 
-form#cms {
-  margin-top: 50px;
-}
 
-#cms textarea {
-  resize: none;
-}
 
-.panel-heading button.delete,
-button.edit {
-  float: right;
-  margin: 5px;
-}
 
-.author-container {
-  margin-top: 50px;
-}
 
-.author-list {
-  margin-top: 25px;
-}
 
-.blog-container {
-  margin-top: 30px;
-}
 
-.blog {
-  margin-top: 30px;
-}
 
-#author-name {
-  width: 100%;
-  height: 35px;
-  margin-top: 5px;
-}
 
-.top-30 {
-  margin-top: 30px;
-}
+
