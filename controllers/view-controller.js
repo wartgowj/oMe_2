@@ -14,23 +14,14 @@ const db = require("../models");
 
 // Each of the below routes just handles the HTML page that the user gets sent to.
 
-
-
-router.get("/", function (req, res) {
-    res.render('index');
-});
-
-router.get("/login", function (req, res) {
-    res.render('login');
-});
-
-router.get("/signup", function (req, res) {
-    res.render('signup');
-});
-
-// cms route loads cms.html
 router.get("/:user", function (req, res) {
-    res.render('userView');
+        db.Transaction.findAll({
+            include: [db.Item, "owner", "borrower"]
+        }).then(function (dbData) {
+            console.log(dbData);
+            res.render("userView", {transaction : dbData});
+            // res.json(dbData);
+        });
 });
 
 router.get("/transaction", function (req, res) {
