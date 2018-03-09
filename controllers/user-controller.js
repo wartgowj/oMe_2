@@ -12,5 +12,11 @@ router.post("/api/adduser", function (req, res) {
     });
 });
 
+router.get("/api/getusers", function(req, res){
+    //gets all users from db
+    db.User.findAll({}).then(function(dbUser){
+        res.json(dbUser);
+    })
+})
 
 module.exports = router;
