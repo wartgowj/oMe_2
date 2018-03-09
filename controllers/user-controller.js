@@ -14,6 +14,7 @@ router.post("/api/adduser", function (req, res) {
     });
 });
 
+
 router.get("/", function (req, res) {
     res.render('index');
 });
@@ -31,6 +32,7 @@ router.get("/api/getusers", function(req, res){
     db.User.findAll({}).then(function(dbUser){
         res.json(dbUser);
     })
+
 })
 
 module.exports = router;
