@@ -11,21 +11,21 @@ $(document).ready(function () {
         event.preventDefault();
         //checks that username was entered
         if (!username.val().trim()) {
-            alert("username not entered!");
+            swal("Oops!", 'Please enter a Username!', 'error');
             return;
         }
         //checks that password was entered
         if (!password.val().trim()) {
-            alert("passwords not entered!");
+            swal("Oops!", 'Please enter a Password!', 'error');
             return;
         }
         //makes sure passwords match
         if (password.val().trim() != passwordCheck.val().trim()) {
-            alert("passwords do not match!");
+            swal("Oops!", 'Passwords Do Not Match!', 'error');
             return;
         }
         if (!image.val().trim()) {
-            alert("mugshot not entered!");
+            swal("Oops!", 'Please enter a mugshot URL!', 'error');
             return;
         }
         insertUser({
@@ -50,7 +50,18 @@ $(document).ready(function () {
         sessionStorage.image = data.image;
         let userId = data.id;
         let userRoute = "/" + userId;
-        window.location.href = userRoute;
+        swal({
+            type: 'success',
+            title: 'Welcome ' + data.name + "!",
+            text: 'Thank you for joining oMe!.',
+            timer: 3000,
+            onOpen: () => {
+                swal.showLoading()
+            }
+        }).then((result) => {
+            window.location.href = userRoute;
+        })
+        
       }
 });
 
