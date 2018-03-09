@@ -5,7 +5,7 @@ $(document).ready(function () {
 
     $(document).on("submit", function(){
     event.preventDefault();
-    const username = $("#username").val();
+    const username = $("#username").val().toLowerCase();
     const password = $("#password").val();
     checkUsers(username, password, userFound);
     
@@ -22,14 +22,24 @@ function checkUsers(username, password, userFound) {
                     sessionStorage.username = users[i].name;
                     sessionStorage.id = users[i].id;
                     userRoute = "/" + sessionStorage.username;
-                    getUserView(userRoute);
+                    swal({
+                        type: 'success',
+                        title: 'Welcome ' + username + "!",
+                        text: 'Redirecting to your oMe page.',
+                        timer: 3000,
+                        onOpen: () => {
+                            swal.showLoading()
+                        }
+                    }).then((result) => {
+                        getUserView(userRoute);
+                    })
                 }else{
-                    alert("Incorrect Password!");
+                    swal("Oops!", 'Incorrect Password', 'warning');
                     return;
                 }
             }
         }if(userFound === false){
-            alert("User Not Found!")
+            swal("Sorry!", 'Username Not Found', 'error');
         }
     });
 }
