@@ -1,7 +1,11 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": "19dart67",
+=======
+    "password": "",
+>>>>>>> 6b3470868bbec69ae93f250212fc9ca4f252afe1
     "database": "ome_db",
     "host": "127.0.0.1",
     "dialect": "mysql"

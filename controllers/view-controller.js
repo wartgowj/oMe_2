@@ -29,8 +29,8 @@ router.get("/signup", function (req, res) {
 });
 
 // cms route loads cms.html
-router.get("/item", function (req, res) {
-    res.render('item');
+router.get("/:user", function (req, res) {
+    res.render('userView');
 });
 
 router.get("/transaction", function (req, res) {
