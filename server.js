@@ -61,19 +61,15 @@ db.sequelize.sync().then(function() {
 
 // function createTransaction() {
 //   db.Transaction.create({
-//     owner_id: 1,
-//     borrower_id: 2,
-//     item_id: 6,
-//     due_date: '04/20/2018',
+//     owner_id: 10,
+//     item_id: 2,
+//     borrower_id: 12,
+//     due_date: '2018-03-09 ',
 //     is_returned: false,
 
 //   });
 // }
 
-
-
-
 // createTransaction()
-
 
 // usersCreate();
