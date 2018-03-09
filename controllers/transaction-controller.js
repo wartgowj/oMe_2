@@ -40,12 +40,14 @@ router.get("/transaction", function (req, res) {
     res.render('transaction');
 });
 
-router.post("/transaction", function (req, res) {
+router.post("/addItem", function (req, res) {
     db.Item.create(req.body).then(function (dbItem) {
         res.json(dbItem);
+    }).catch(function (reason) {
+        console.log(reason);
     });
-    db.Transaction.create(req.body).then(function (dbTrans) {
-        res.json(dbTrans);
-    });
+    // db.Transaction.create(req.body).then(function (dbTrans) {
+    //     res.json(dbTrans);
+    // });
 });
 module.exports = router;
