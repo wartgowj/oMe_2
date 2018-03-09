@@ -8,6 +8,11 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.BOOLEAN,
             allowNull: false,
             defaultValue: false
+        },
+        borrower_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 2
         }
     });
 
@@ -17,7 +22,7 @@ module.exports = function (sequelize, DataTypes) {
             foreignKey: {
                 name:'owner_id',
                 allowNull: false
-            }
+            }, as: 'owner'
         });
         Transaction.belongsTo(models.Item, {
             foreignKey: {
@@ -29,7 +34,7 @@ module.exports = function (sequelize, DataTypes) {
             foreignKey: {
                 name: 'borrower_id',
                 allowNull: false
-            }
+            }, as : 'borrower'
         });
     };
    
