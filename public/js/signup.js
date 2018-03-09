@@ -1,6 +1,5 @@
 $(document).ready(function () {
-    
-    var userRoute = "";
+
     const username = $("#username");
     const password = $("#password");
     const passwordCheck = $("#password2");
@@ -29,25 +28,28 @@ $(document).ready(function () {
             alert("mugshot not entered!");
             return;
         }
-        //if everything checks out stores username and password into session storage
-        sessionStorage.username = username.val().trim();
-        sessionStorage.password = password.val().trim();
-        sessionStorage.image = image.val().trim();
-       
         insertUser({
             name: username.val().trim(),
             password: password.val().trim(),
             image: image.val().trim()
         });
+        //if everything checks out stores username and password into session storage
+        sessionStorage.username = username.val().trim();
+        sessionStorage.password = password.val().trim();
+        sessionStorage.image = image.val().trim();
     }
 
     function insertUser(userData) {
-        userRoute = "/" + username.val();
         $.post("/api/adduser", userData)
-        .then(getUserView(userRoute));
+        .then(function(data){
+            getUserView(data);
+        });
     }
 
-    function getUserView(userRoute) {
+    function getUserView(data) {
+        console.log(data);
+        let userId = data.id;
+        let userRoute = "/" + userId;
         window.location.href = userRoute;
         // $.get("/user", function(data) {
          

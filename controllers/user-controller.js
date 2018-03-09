@@ -9,6 +9,8 @@ const router = express.Router();
 router.post("/api/adduser", function (req, res) {
     db.User.create(req.body).then(function (dbUser) {
         res.json(dbUser);
+    }).catch(function (reason) {
+        console.log(reason);
     });
 });
 
