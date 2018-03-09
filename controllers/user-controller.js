@@ -14,11 +14,32 @@ router.post("/api/adduser", function (req, res) {
     });
 });
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> f007c1e7a4ef9d8b57cd258e94df2064a154302c
+router.get("/", function (req, res) {
+    res.render('index');
+});
+
+router.get("/login", function (req, res) {
+    res.render('login');
+});
+
+router.get("/signup", function (req, res) {
+    res.render('signup');
+});
+
 router.get("/api/getusers", function(req, res){
     //gets all users from db
     db.User.findAll({}).then(function(dbUser){
         res.json(dbUser);
     })
+<<<<<<< HEAD
+});
+
+=======
 })
+>>>>>>> f007c1e7a4ef9d8b57cd258e94df2064a154302c
 
 module.exports = router;

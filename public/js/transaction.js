@@ -1,63 +1,77 @@
 $(document).ready(function() {
+
+    const item = $("#item");
+    const itemType = $("#itemType");
+    const borrower = $("#borrower");
+    const owner = $("#owner");
+    const dueDate = $("#dueDate");
     //Click events
-    $(document).on("click", "button.addBorrow", handleAddBorrow);
-    $(document).on("click", "button.addLend", handleAddLend);
-    // $(document).on("click", "button.borrow", handleAddBorrow);
-    // $(document).on("click", "button.lend", handleAddLend);
+    $(document).on("click", "button.addTransaction", handleTransaction);
+    // $(document).on("click", "button.addBorrow", handleAddBorrow);
+    // $(document).on("click", "button.addLend", handleAddLend);
 
-    function handleAddBorrow(event) {
+
+    function handleTransaction(event) {
         event.preventDefault();
-        // Wont submit the post if we are missing a body, title, or author
-        if (!item.val().trim() || !borrower.val().trim() || !dateDue.val()) {
+        // Wont submit the transaction if fields are blank
+        if (!item.val().trim() || !borrower.val().trim() || !dueDate.val() || !owner.val()) {
             return;
         }
-        // Constructing a newPost object to hand to the database
-        var newBorrow = {
-            item_id: item
-                .val()
-                .trim(),
-            owner_id: owner
-                .val()
-                .trim(),
-            borrower_id: borrower.val(),
+        // Constructing a newTransaction object to hand to the database
+        var newItem = {
+            name: item.val().trim(),
+            type: itemType.val().trim(),
+            owner_id: owner.val().trim()
+        };
+
+        var newTransaction = {
+            item_id: owner.val().trim(),
+            owner_id: owner.val().trim(),
+            borrower_id: borrower.val().trim(),
             due_date: dueDate.val()
         };
-            submitBorrow(newBorrow);
+        submitItem(newItem);
+
+        submitTransaction(newTransaction);
 
     }
 
-    // Submits a new post and brings user to blog page upon completion
-    function submitBorrow(borrow) {
-        $.post("/:user/addBorrow", post, function() {
-            window.location.href = "/:user";
-        });
+    // Submits a new transaction
+    function submitItem(item) {
+        $.post("/addItem", item)
     }
-    function handleAddLend(event) {
-        event.preventDefault();
-        // Wont submit the post if we are missing a body, title, or author
-        if (!item.val().trim() || !owner.val().trim() || !dateDue.val()) {
-            return;
-        }
-        // Constructing a newPost object to hand to the database
-        var newLend = {
-            item_id: item
-                .val()
-                .trim(),
-            owner_id: owner
-                .val()
-                .trim(),
-            borrower_id: borrower.val(),
-            due_date: dueDate.val()
-        };
-        submitLend(newLend);
-
+    function submitTransaction(trans) {
+        $.post("/transaction", trans)
     }
-
-    // Submits a new post and brings user to blog page upon completion
-    function submitLend(Lend) {
-        $.post("/:user/addBorrow", post, function() {
-            window.location.href = "/:user";
-        });
-    }
-
 });
+//
+//     function handleAddLend(event) {
+//         event.preventDefault();
+//         // Wont submit the post if we are missing a body, title, or author
+//         if (!item.val().trim() || !owner.val().trim() || !dateDue.val()) {
+//             return;
+//         }
+//
+//         // Constructing a newPost object to hand to the database
+//         var newLend = {
+//             item_id: item
+//                 .val()
+//                 .trim(),
+//             owner_id: owner
+//                 .val()
+//                 .trim(),
+//             borrower_id: borrower.val(),
+//             due_date: dueDate.val()
+//         };
+//         submitLend(newLend);
+//
+//     }
+//
+//     // Submits a new post and brings user to blog page upon completion
+//     function submitLend(Lend) {
+//         $.post("/:user/addBorrow", post, function() {
+//             window.location.href = "/:user";
+//         });
+//     }
+//
+// });

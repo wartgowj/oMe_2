@@ -6,18 +6,7 @@ const router = express.Router();
 
 // Routes
 // =============================================================
-router.get("/item", function (req, res) {
 
-
-    db.Transaction.findAll({
-        include: [db.Item, "owner", "borrower"]
-    }).then(function (dbData) {
-        console.log(dbData);
-        
-        res.render("userView", {transaction : dbData});
-        // res.json(dbData);
-    });
-});
 
 // router.get("/item", function (req, res) {
 
@@ -47,5 +36,18 @@ router.post("/:user/addLend", function (req, res) {
         res.json(dbTrans);
     });
 });
+router.get("/transaction", function (req, res) {
+    res.render('transaction');
+});
 
+router.post("/addItem", function (req, res) {
+    db.Item.create(req.body).then(function (dbItem) {
+        res.json(dbItem);
+    }).catch(function (reason) {
+        console.log(reason);
+    });
+    // db.Transaction.create(req.body).then(function (dbTrans) {
+    //     res.json(dbTrans);
+    // });
+});
 module.exports = router;
