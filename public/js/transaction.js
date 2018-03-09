@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
     const item = $("#item");
+    const itemType = $("#itemType");
     const borrower = $("#borrower");
     const owner = $("#owner");
     const dueDate = $("#dueDate");
@@ -17,17 +18,28 @@ $(document).ready(function() {
             return;
         }
         // Constructing a newTransaction object to hand to the database
+        var newItem = {
+            name: item.val().trim(),
+            type: itemType.val().trim(),
+            owner_id: owner.val().trim()
+        };
+
         var newTransaction = {
-            item_name: item.val().trim(),
+            item_id: owner.val().trim(),
             owner_id: owner.val().trim(),
             borrower_id: borrower.val().trim(),
             due_date: dueDate.val()
         };
+        submitItem(newItem);
+
         submitTransaction(newTransaction);
 
     }
 
     // Submits a new transaction
+    function submitItem(item) {
+        $.post("/addItem", item)
+    }
     function submitTransaction(trans) {
         $.post("/transaction", trans)
     }
