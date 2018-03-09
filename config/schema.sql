@@ -13,7 +13,7 @@ CREATE TABLE users
 CREATE TABLE items
 (
 	id int NOT NULL AUTO_INCREMENT,
-	name Varchar(255) NOT NULL,
+	name Varchar(255) NOT NULL
     owner_id Int,
 	type Varchar(255) NOT NULL,
 	is_borrowed Boolean NOT NULL,
