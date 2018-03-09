@@ -18,6 +18,7 @@ function checkUsers(username, password) {
             if (username === users[i].name) {
                 if(password === users[i].password){
                     sessionStorage.username = users[i].name;
+                    sessionStorage.id = users[i].id;
                     userRoute = "/" + sessionStorage.username;
                     getUserView(userRoute);
                 }else{
