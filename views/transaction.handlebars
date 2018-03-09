@@ -1,3 +1,39 @@
 <h1>Form for entering new transaction</h1>
   <!-- Custom Script -->
   <script src="js/transaction.js" type="text/javascript"></script>
+
+<form class="col s12">
+    <div class="row">
+        <div class="input-field col s8">
+            <i class="material-icons prefix">phone</i>
+            <input placeholder="Placeholder" id="item" type="text" class="validate">
+            <label for="itemBorrow">item that you might return ...</label>
+        </div>
+        <div class="input-field col s4">
+            <select>
+                <option value="" disabled selected>what is this item?</option>
+                <option value="1">Thing</option>
+                <option value="2">Favor</option>
+                <option value="3">Money</option>
+            </select>
+            <label>Materialize Select</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s6">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="borrower" type="text" class="validate">
+            <label for="borrower">Borrower</label>
+        </div>
+        <div class="input-field col s6">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="owner" type="text" class="validate">
+            <label for="owner">owner</label>
+        </div>
+        <div class="input-field col s6">
+            <input id="dueDate" type="text" class="datepicker">
+            <label for="dueDate">One day in the future that you might get this back</label>
+        </div>
+    </div>
+</form>
+<button href="#!" class="modal-action modal-close waves-effect waves-green btn-flat addTransaction">Add Now</button>
