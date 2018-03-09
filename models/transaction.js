@@ -37,7 +37,7 @@ module.exports = function (sequelize, DataTypes) {
             }, as : 'borrower'
         });
     };
-   
+
 
     return Transaction;
 };
