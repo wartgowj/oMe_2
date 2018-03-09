@@ -7,12 +7,26 @@ const router = express.Router();
 // Routes
 // =============================================================
 router.get("/item", function (req, res) {
-    db.Item.findAll({
 
+
+    db.Transaction.findAll({
+        include: [db.Item, "owner", "borrower"]
     }).then(function (dbData) {
-        res.render("userView",{Item : dbData});
+        console.log(dbData);
+        
+        res.render("userView", {transaction : dbData});
+        // res.json(dbData);
     });
 });
+
+// router.get("/item", function (req, res) {
+
+//     db.Item.findAll({
+
+//     }).then(function (dbData) {
+//         res.render("userView", { item: dbData });
+//     });
+// });
 
 router.post("/api/authors", function (req, res) {
     // Create an Author with the data available to us in req.body
