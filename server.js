@@ -37,12 +37,14 @@ app.set("view engine", "handlebars");
 const userController = require("./controllers/user-controller.js");
 const transController = require("./controllers/transaction-controller.js");
 const viewController = require("./controllers/view-controller.js");
+const itemController = require("./controllers/item-controller.js");
 
 
 
 app.use(userController);
 app.use(transController);
 app.use(viewController);
+app.use(itemController);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

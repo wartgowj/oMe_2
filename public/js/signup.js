@@ -49,7 +49,10 @@ $(document).ready(function () {
         sessionStorage.username = data.name;
         sessionStorage.image = data.image;
         let userId = data.id;
-        let userRoute = "/" + userId;
+
+
+
+        let userRoute = "/ome" + userId;
         swal({
             type: 'success',
             title: 'Welcome ' + data.name + "!",
@@ -61,7 +64,6 @@ $(document).ready(function () {
         }).then((result) => {
             window.location.href = userRoute;
         })
-        
       }
 });
 
