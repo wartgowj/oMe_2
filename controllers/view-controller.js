@@ -53,4 +53,13 @@ router.post("/ome/addLend", function (req, res) {
     }).catch(function (reason) { console.log(reason) });
 });
 
+router.delete("/api/delete/:transId", function (req, res) {
+    db.Transaction.destroy({
+        where: {
+            id: req.params.transId
+        }
+    }).then(function (req, res) {
+        location.reload();
+});
+});
 module.exports = router;
