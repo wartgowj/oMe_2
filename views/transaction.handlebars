@@ -7,12 +7,12 @@
         <div class="input-field col s8">
             <i class="material-icons prefix">thumbs_up_down</i>
             <select id="item">
-                <option value="" disabled selected>item that you might return ...</option>
+                <option value="" disabled selected>favor, money, thing</option>
                 {{#each Item}}
                     <option value="{{this.id}},{{this.owner_id}}">{{this.name}}</option>
                 {{/each}}
             </select>
-            <label>Materialize Select</label>
+            <label>item that you might return ...</label>
         </div>
     </div>
     <div class="row">
