@@ -26,23 +26,15 @@ router.get("/ome/:userId", function (req, res) {
             // borrower_id: req.params.userId
         }
 
-    }).then(function (borrowerData) {
+    }).then(function (borrowData) {
 
-        borrowerData = borrowerData;
+        borrowerData = borrowData;
         res.render("userView", { lentItems: ownerData, loanedItems: borrowerData });
 
     }).catch(function (reason) {
         console.log(reason);
     }))
 });
-
-
-
-router.post("/api/authors", function (req, res) {
-    // Create an Author with the data available to us in req.body
-    console.log(req.body);
-
-
 
 router.post("/ome/:user/addBorrow", function (req, res) {
 
@@ -56,6 +48,7 @@ router.post("/ome/:user/addLend", function (req, res) {
         res.json(dbTrans);
     });
 });
+
 router.get("/addtransaction", function (req, res) {
     var userdata;
     var itemdata;

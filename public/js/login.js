@@ -22,7 +22,7 @@ function checkUsers(username, password, userFound) {
                     sessionStorage.username = users[i].name;
                     sessionStorage.id = users[i].id;
                   
-                    userRoute = "/ome" + sessionStorage.username;
+                    userRoute = "/ome/" + sessionStorage.id;
                     swal({
                         type: 'success',
                         title: 'Welcome ' + username + "!",
