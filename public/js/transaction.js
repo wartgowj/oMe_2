@@ -3,8 +3,6 @@ $(document).ready(function() {
     //Click events
     $(document).on("click", "button.addTransaction", handleTransaction);
 
-
-
     function handleTransaction(event) {
         var itemStr = $("#item").val();
         var itemArr = itemStr.split(',');
