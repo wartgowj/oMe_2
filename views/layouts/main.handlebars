@@ -11,6 +11,7 @@
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
   <link rel="stylesheet" href="../css/styles.css" media="screen" title="styles.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <!-- Compiled and minified JavaScript -->
@@ -27,6 +28,9 @@
                 <a href="/" class="brand-logo">
                     <img class="navImage" src="../images/oMeNavBarImage.png">
                 </a>
+                <ul id="nav-mobile" class="right aboutAlert" id="aboutAlert">
+                    <li id="aboutAlert">About</li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -41,12 +45,19 @@
         <div class="footer-copyright">
             <div class="container">
                 © 2018 oMe
-                <!-- We will add the number of items currently borrowed and number of items that 
-            have been returned -->
             </div>
         </div>
-    </footer>
-    
+    </footer>   
 </body>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(document).on('click', "#aboutAlert", aboutAlert) 
+    });
+
+    function aboutAlert() {
+        swal('About oMe', 'Worried about your \"friends\" not returning money, things or favors when they \"borrow\" stuff\? Track who owes you what and when you need it back by.')
+    };
+</script>
 </html>
 

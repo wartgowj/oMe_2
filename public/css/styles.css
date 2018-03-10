@@ -11,26 +11,8 @@
 
 }
 
-.page-footer {
-  text-align: center;
-}
-
-.indexPageDiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.indexPageDiv img {
-  max-width: 100%;
-}
-
-.indexButtons {
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  bottom: 3%;
+.aboutAlert {
+  margin-right: 1%;
 }
 
 .loginButton, .signUpButton {
@@ -62,6 +44,30 @@ main {
 button.submit {
   float: right;
 }
+
+
+.page-footer {
+  text-align: center;
+}
+
+.indexPageDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.indexPageDiv img {
+  max-width: 100%;
+}
+
+.indexButtons {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 3%;
+}
+
 
 
 
