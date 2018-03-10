@@ -6,13 +6,6 @@ const router = express.Router();
 // Routes
 // =============================================================
 
-router.post("/ome/:user/addBorrow", function (req, res) {
-
-    db.Transaction.create(req.body).then(function (dbTrans) {
-        res.json(dbTrans);
-    });
-});
-
 router.post("/ome/:user/addLend", function (req, res) {
     db.Transaction.create(req.body).then(function (dbTrans) {
         res.json(dbTrans);
