@@ -3,7 +3,6 @@ $(document).ready(function() {
     //Click events
     $(document).unbind().one("click", "button.borrow", handleBorrow);
     $(document).unbind().one("click", "button.lend", handleLend);
-    $(document).unbind().one("click", "button.confirmItem", handleItem);
 
     function handleBorrow(event) {
         event.preventDefault();
