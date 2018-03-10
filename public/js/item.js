@@ -4,6 +4,7 @@ $(document).ready(function() {
     const itemType = $("#itemType");
     const owner = $("#owner");
     const dueDate = $("#dueDate");
+    const userRoute = "/ome/" + sessionStorage.id;
 
     //Click events
     $(document).on("click", "button.addItem", handleItem);
@@ -22,6 +23,7 @@ $(document).ready(function() {
         };
 
         submitItem(newItem);
+        window.location.href = userRoute;
     }
 
     // Submits a new transaction
