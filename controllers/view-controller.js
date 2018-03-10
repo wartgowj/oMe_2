@@ -41,7 +41,12 @@ router.get("/ome/:userId", function (req, res) {
     }))))
 });
 
+router.post("/ome/addBorrow", function (req, res) {
+    db.Transaction.create(req.body).then(function (dbTrans) {
+        res.json(dbTrans);
 
+    });
+});
 
 
 module.exports = router;
