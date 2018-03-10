@@ -73,3 +73,10 @@ $(document).ready(function() {
         submitLend(newLend);
     }
 });
+
+function submitLend(trans) {
+    console.log('posting now');
+    $.post("/ome/addLend", trans).then(function () {
+        location.reload();
+    })
+}

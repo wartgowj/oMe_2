@@ -50,7 +50,7 @@ router.post("/ome/addBorrow", function (req, res) {
 router.post("/ome/addLend", function (req, res) {
     db.Transaction.create(req.body).then(function (dbTrans) {
         res.json(dbTrans);
-    });
+    }).catch(function (reason) { console.log(reason) });
 });
 
 module.exports = router;

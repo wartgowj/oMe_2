@@ -13,8 +13,8 @@
                     <p>Item Borrowed: {{this.Item.name}}
                     <br> Due Date: {{this.due_date}}
                     </p>
-                    <a href="#!" class="secondary-content">
-                    <i class="material-icons">grade</i>
+                    <a href="#!" class="secondary-content delete btn btn-danger">
+                    <i class="material-icons">send</i>
                     </a>
                 </li>
             </ul>
@@ -32,8 +32,8 @@
             <p>Item Borrowed: {{this.Item.name}}
                 <br> Due Date: {{this.due_date}}
             </p>
-            <a href="#!" class="secondary-content">
-                <i class="material-icons">grade</i>
+        <a href="#!" class="secondary-content delete">
+            <i class="material-icons">send</i>
             </a>
         </li>
     </ul>
@@ -102,7 +102,7 @@
                         <select id="borrower">
                             <option value="" disabled selected>favor, money, thing</option>
                             {{#each User}}
-                                <option value="{{this.id}},{{this.id}}">{{this.name}}</option>
+                                <option value="{{this.id}}">{{this.name}}</option>
                             {{/each}}
                         </select>
                         <label for="borrower">lowlife you call a friend that is borrowing this item...</label>
