@@ -17,6 +17,8 @@ router.get("/ome/:userId", function (req, res) {
             // borrower_id: req.params.userId
         }
     }).then(function (dbData) {
+        console.log(dbData);
+        
         ownerData = dbData;
 
     }).then(db.Transaction.findAll({
@@ -29,11 +31,13 @@ router.get("/ome/:userId", function (req, res) {
     }).then(function (borrowData) {
 
         borrowerData = borrowData;
+        
         res.render("userView", { lentItems: ownerData, loanedItems: borrowerData });
 
     }).catch(function (reason) {
         console.log(reason);
     }))
+
 });
 
 router.post("/ome/:user/addBorrow", function (req, res) {
