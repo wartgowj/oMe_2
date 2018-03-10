@@ -9,30 +9,42 @@ $(document).ready(function () {
 
     function handleNewUser(event){
         event.preventDefault();
+        checkIfNameTaken(username);
         //checks that username was entered
         if (!username.val().trim()) {
-            alert("username not entered!");
+            swal("Oops!", 'Please enter a Username!', 'error');
             return;
         }
         //checks that password was entered
         if (!password.val().trim()) {
-            alert("passwords not entered!");
+            swal("Oops!", 'Please enter a Password!', 'error');
             return;
         }
         //makes sure passwords match
         if (password.val().trim() != passwordCheck.val().trim()) {
-            alert("passwords do not match!");
+            swal("Oops!", 'Passwords Do Not Match!', 'error');
             return;
         }
         if (!image.val().trim()) {
-            alert("mugshot not entered!");
+            swal("Oops!", 'Please enter a mugshot URL!', 'error');
             return;
         }
-        insertUser({
-            name: username.val().trim(),
-            password: password.val().trim(),
-            image: image.val().trim()
-        });
+
+    }
+
+    function checkIfNameTaken(username){
+        $.get("/api/getusers", function(users){
+            for(i = 0; i < users.length; i++){
+                if(username.val() === users[i].name){
+                    swal("Sorry", 'That username is unavailable', 'error');
+                    return;
+                }
+            } insertUser({
+                name: username.val().trim(),
+                password: password.val().trim(),
+                image: image.val().trim()
+            });
+        })
     }
 
     function insertUser(userData) {
@@ -48,9 +60,25 @@ $(document).ready(function () {
         sessionStorage.userId = data.id;
         sessionStorage.username = data.name;
         sessionStorage.image = data.image;
+
+        let name = data.name;
+        let userRoute = "/" + name;
+
         let userId = data.id;
-        let userRoute = "/" + userId;
-        window.location.href = userRoute;
+
+        let userRoute = "/ome/" + userId;
+
+        swal({
+            type: 'success',
+            title: 'Welcome ' + name + "!",
+            text: 'Thank you for joining oMe!.',
+            timer: 3000,
+            onOpen: () => {
+                swal.showLoading()
+            }
+        }).then((result) => {
+            window.location.href = userRoute;
+        })
       }
 });
 

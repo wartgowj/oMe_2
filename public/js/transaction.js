@@ -1,35 +1,39 @@
 $(document).ready(function() {
 
-    const item = $("#item");
-    const borrower = $("#borrower");
-    const owner = $("#owner");
-    const dueDate = $("#dueDate");
     //Click events
     $(document).on("click", "button.addTransaction", handleTransaction);
-    // $(document).on("click", "button.addBorrow", handleAddBorrow);
-    // $(document).on("click", "button.addLend", handleAddLend);
+
 
 
     function handleTransaction(event) {
+        var itemStr = $("#item").val();
+        var itemArr = itemStr.split(',');
+        var item = itemArr[0];
+        var borrower = $("#borrower");
+        var owner = itemArr[1];
+        var dueDate = $("#dueDate");
         event.preventDefault();
+        console.log(owner);
+        console.log(item);
         // Wont submit the transaction if fields are blank
-        if (!item.val().trim() || !borrower.val().trim() || !dueDate.val() || !owner.val()) {
+        if (!item || !borrower.val().trim() || !dueDate.val() || !owner) {
             return;
         }
         // Constructing a newTransaction object to hand to the database
         var newTransaction = {
-            item_name: item.val().trim(),
-            owner_id: owner.val().trim(),
+            item_id: item,
+            owner_id: owner,
             borrower_id: borrower.val().trim(),
             due_date: dueDate.val()
         };
+
         submitTransaction(newTransaction);
 
     }
 
     // Submits a new transaction
     function submitTransaction(trans) {
-        $.post("/transaction", trans)
+        $.post("/addtransaction", trans)
     }
 });
 //

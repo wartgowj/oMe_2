@@ -31,6 +31,7 @@ router.get("/api/getusers", function(req, res){
     db.User.findAll({}).then(function(dbUser){
         res.json(dbUser);
     })
-})
+});
+
 
 module.exports = router;
