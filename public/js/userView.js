@@ -3,6 +3,7 @@ $(document).ready(function() {
     //Click events
     $(document).unbind().one("click", "button.borrow", handleBorrow);
     $(document).unbind().one("click", "button.lend", handleLend);
+    $(document).on("click", ".delete", handlePostDelete);
 
     $(document).on("click", ".logout", logOut);
 
@@ -79,4 +80,26 @@ function submitLend(trans) {
     $.post("/ome/addLend", trans).then(function () {
         location.reload();
     })
+
+    function getTransactions() {
+        $.get("/ome/"+sessionStorage.id, function (data) {
+            console.log(data);
+        });
+    }
+
+    function deletePost(id) {
+        $.ajax({
+            method: "DELETE",
+            url: "/api/delete/" + id
+        })
+            .then(getTransactions);
+    }
+
+    // This function figures out which post we want to delete and then calls deletePost
+    function handlePostDelete() {
+        var id = $(this)
+            .closest('[data-trans]')
+            .attr("data-trans");
+        deletePost(id);
+    }
 }
