@@ -1,7 +1,7 @@
 module.exports = function (sequelize, DataTypes) {
     var Transaction = sequelize.define("Transaction", {
         due_date: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATEONLY,
             allowNull: false
         },
         is_returned: {

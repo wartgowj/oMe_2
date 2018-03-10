@@ -61,15 +61,24 @@ db.sequelize.sync().then(function() {
 
 // function createTransaction() {
 //   db.Transaction.create({
-//     owner_id: 10,
-//     item_id: 2,
-//     borrower_id: 12,
-//     due_date: '2018-03-09 ',
+//     owner_id: 19,
+//     item_id: 13,
+//     borrower_id: 29,
+//     due_date: '2018-03-20',
 //     is_returned: false,
 
 //   });
 // }
 
-// createTransaction()
+// function itemCreate() {
+//   db.Item.create({
+//     name: 'plant',
+//     type: 'money',
+//     is_borrowed: true,
+//     owner_id: 19
+//   });
+// }
 
-// usersCreate();
+// createTransaction();
+
+// itemCreate();

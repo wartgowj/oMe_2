@@ -2,31 +2,42 @@
 const db = require("../models");
 const express = require('express');
 const router = express.Router();
-
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 // Routes
 // =============================================================
-router.get("/item", function (req, res) {
-
+router.get("/:userId", function (req, res) {
+    var ownerData;
+    var borrowerData;
 
     db.Transaction.findAll({
-        include: [db.Item, "owner", "borrower"]
+        include: [db.Item, "owner", "borrower"],
+        where: {
+            owner_id: req.params.userId,
+            // borrower_id: req.params.userId
+        }
     }).then(function (dbData) {
-        console.log(dbData);
-        
-        res.render("userView", {transaction : dbData});
-        // res.json(dbData);
-    });
+        ownerData = dbData;
+
+    }).then(db.Transaction.findAll({
+        include: [db.Item, "owner", "borrower"],
+        where: {
+            borrower_id: req.params.userId,
+            // borrower_id: req.params.userId
+        }
+
+    }).then(function (borrowerData) {
+
+        borrowerData = borrowerData;
+        res.render("userView", { lentItems: ownerData, loanedItems: borrowerData });
+
+    }).catch(function (reason) {
+        console.log(reason);
+    }))
 });
 
-// router.get("/item", function (req, res) {
 
-//     db.Item.findAll({
-
-//     }).then(function (dbData) {
-//         res.render("userView", { item: dbData });
-//     });
-// });
 
 router.post("/api/authors", function (req, res) {
     // Create an Author with the data available to us in req.body

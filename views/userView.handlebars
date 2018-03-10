@@ -3,51 +3,42 @@
 
 <div class="container">
     <h1>Items You Have Lent Out </h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Borrower</th>
-                <th>Thing</th>
-                <th>Due Date</th>
-            </tr>
-        </thead>
-        <tbody>
-                {{#each transaction}} 
-            <tr>
-                <td>{{this.borrower.name}}</td>
-                <td>{{this.Item.name}}</td>
-                <td>{{this.due_date}}</td>
-            </tr>
-                {{/each}}
-                 
-        </tbody>
-    </table>
+        {{#each lentItems}}
+            <ul class="collection">
+                <li class="collection-item avatar">
+                    <img src="{{{this.borrower.image}}}" alt="" class="circle">
+                    <span class="title">Borrower: {{this.borrower.name}} </span>
+                    <p>Item Borrowed: {{this.Item.name}}
+                    <br> Due Date: {{this.due_date}}
+                    </p>
+                    <a href="#!" class="secondary-content">
+                    <i class="material-icons">grade</i>
+                    </a>
+                </li>
+            </ul>
+        {{/each}}
+    <a class="waves-effect waves-light btn modal-trigger" href="#addBorrow">borrow</a>
+</div>
 
-
-        <a class="waves-effect waves-light btn modal-trigger" href="#addBorrow">borrow</a>
-
-    <h1>Items You Have Borrowed</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Lender</th>
-                <th>Thing</th>
-                <th>Due Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each transaction}}
-        <tr>
-            <td>{{this.owner.name}}</td>
-            <td>{{this.Item.name}}</td>
-            <td>{{this.due_date}}</td>
-        </tr>
-             {{/each}}
-        </tbody>
-    </table>
-
+<div class="container">
+    <h1>Items You Have Borrowed </h1>
+    {{#each loanedItems}}
+    <ul class="collection">
+        <li class="collection-item avatar">
+            <img src="{{{this.owner.image}}}" alt="" class="circle">
+            <span class="title">Lender: {{this.owner.name}} </span>
+            <p>Item Borrowed: {{this.Item.name}}
+                <br> Due Date: {{this.due_date}}
+            </p>
+            <a href="#!" class="secondary-content">
+                <i class="material-icons">grade</i>
+            </a>
+        </li>
+    </ul>
+    {{/each}}
     <a class="waves-effect waves-light btn modal-trigger" href="#addLend">Lend</a>
-    </div>
+</div>
+       
 
 <div id="addBorrow" class="modal">
     <div class="modal-content">
