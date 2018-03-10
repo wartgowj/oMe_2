@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7429419f-51a8-41a9-b556-871c6e7f591c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/views/index.handlebars" afterPath="$PROJECT_DIR$/views/index.handlebars" />
-      <change beforePath="$PROJECT_DIR$/views/item.handlebars" afterPath="$PROJECT_DIR$/views/item.handlebars" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,11 +27,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.handlebars" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.handlebars" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.handlebars">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="16" lean-forward="false" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+            <state relative-caret-position="253">
+              <caret line="11" column="4" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="3" selection-end-line="50" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -57,7 +67,6 @@
       <list>
         <option value="$PROJECT_DIR$/views/modals.handlebars" />
         <option value="$PROJECT_DIR$/public/css/styles.css" />
-        <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/models/item.js" />
         <option value="$PROJECT_DIR$/models/user.js" />
         <option value="$PROJECT_DIR$/views/layouts/main.handlebars" />
@@ -75,6 +84,7 @@
         <option value="$PROJECT_DIR$/config/config.json" />
         <option value="$PROJECT_DIR$/views/item.handlebars" />
         <option value="$PROJECT_DIR$/views/index.handlebars" />
+        <option value="$PROJECT_DIR$/server.js" />
       </list>
     </option>
   </component>
@@ -209,12 +219,12 @@
       <workItem from="1520614531539" duration="19883000" />
       <workItem from="1520649111162" duration="2802000" />
       <workItem from="1520657809972" duration="9278000" />
-      <workItem from="1520694847723" duration="4017000" />
+      <workItem from="1520694847723" duration="4249000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67360000" />
+    <option name="totallyTimeSpent" value="67592000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="22" width="1936" height="1066" extended-state="6" />
@@ -524,13 +534,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="46" column="24" lean-forward="true" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/layouts/main.handlebars">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -651,8 +654,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.handlebars">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="16" lean-forward="false" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        <state relative-caret-position="253">
+          <caret line="11" column="4" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="3" selection-end-line="50" selection-end-column="40" />
           <folding />
         </state>
       </provider>
