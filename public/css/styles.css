@@ -29,7 +29,7 @@ main {
   flex: 1 0 auto;
 }
 
-.btn {
+.btn, .addItem {
   background-color: #f7c800;
 }
 
