@@ -48,24 +48,22 @@
                 <div class="row">
                     <div class="input-field col s8">
                         <i class="material-icons prefix">thumbs_up_down</i>
-                        <input placeholder="favor, money, thing" id="itemBorrow" type="text" class="validate">
-                        <label for="itemBorrow">item that you might return ...</label>
+                        <select id="itemBorrowed">
+                            <option value="" disabled selected>favor, money, thing</option>
+                            {{#each Item}}
+                                <option value="{{this.id}},{{this.owner_id}}">{{this.name}}</option>
+                            {{/each}}
+                        </select>
+                        <label for="itemBorrowed">the item you may return</label>
                     </div>
                     <div class="input-field col s4">
-                        <select>
-                            <option value="" disabled selected>Type of Item</option>
-                            <option value="1">Money</option>
-                            <option value="2">Favor</option>
-                            <option value="3">Thing</option>
-                        </select>
-                        <label>Category</label>
+                        <button>Add item</button>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="material-icons prefix">account_circle</i>
-                        <input id="owner" type="text" class="validate">
-                        <label for="owner">the generous and obviously gullible person lending you this item...</label>
+                        <img src="">
+                        <p>the generous and obviously gullible person lending you this item...</p>
                     </div>
                     <div class="input-field col s12">
                         <i class="material-icons prefix">date_range</i>
@@ -94,13 +92,7 @@
                         <label for="itemBorrow">item that you might get back ...</label>
                     </div>
                     <div class="input-field col s4">
-                        <select>
-                            <option value="" disabled selected>Type of Item</option>
-                            <option value="1">Money</option>
-                            <option value="2">Favor</option>
-                            <option value="3">Thing</option>
-                        </select>
-                        <label>Category</label>
+
                     </div>
                 </div>
                 <div class="row">
