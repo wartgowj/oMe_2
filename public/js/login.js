@@ -21,7 +21,7 @@ function checkUsers(username, password, userFound) {
                 if(password === users[i].password){
                     sessionStorage.username = users[i].name;
                     sessionStorage.id = users[i].id;
-                    userRoute = "/" + sessionStorage.username;
+                    userRoute = "/ome/" + sessionStorage.username;
                     getUserView(userRoute);
                 }else{
                     alert("Incorrect Password!");

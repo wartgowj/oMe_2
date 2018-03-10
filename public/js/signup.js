@@ -49,7 +49,7 @@ $(document).ready(function () {
         sessionStorage.username = data.name;
         sessionStorage.image = data.image;
         let userId = data.id;
-        let userRoute = "/" + userId;
+        let userRoute = "/ome/" + userId;
         window.location.href = userRoute;
       }
 });
