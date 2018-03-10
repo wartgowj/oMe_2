@@ -3,6 +3,12 @@ $(document).ready(function() {
     //Click events
     $(document).on("click", "button.borrow", handleBorrow);
 
+    $(document).on("click", ".logout", logOut);
+
+    function logOut() {
+        sessionStorage.clear();
+    }
+
     function handleBorrow(event) {
         event.preventDefault();
         console.log('go add a borrow');
