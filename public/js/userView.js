@@ -1,7 +1,9 @@
 $(document).ready(function() {
 
     //Click events
-    $(document).on("click", "button.borrow", handleBorrow);
+    $(document).unbind().one("click", "button.borrow", handleBorrow);
+    $(document).unbind().one("click", "button.lend", handleLend);
+    $(document).unbind().one("click", "button.confirmItem", handleItem);
 
     $(document).on("click", ".logout", logOut);
 
@@ -26,54 +28,49 @@ $(document).ready(function() {
             return;
         }
         // Constructing a newTransaction object to hand to the database
-        var newTransaction = {
+        var newBorrow = {
             item_id: item,
             owner_id: owner,
             borrower_id: borrower,
             due_date: dueDate.val()
         };
-        console.log(newTransaction);
-        // submitTransaction(newTransaction);
+        console.log(newBorrow);
+        submitBorrow(newBorrow);
 
     }
 
     // Submits a new transaction
-    function submitTransaction(trans) {
+    function submitBorrow(trans) {
         console.log('posting now');
         $.post("/ome/addBorrow", trans).then(function () {
-            console.log('gfy');
             location.reload();
         })
     }
+
+    function handleLend(event) {
+        event.preventDefault();
+        console.log('go add a borrow');
+        var itemStr = $("#itemLent").val();
+        var itemArr = itemStr.split(',');
+        var item = itemArr[0];
+        var owner = itemArr[1];
+        var dueDate = $("#dueDateLend");
+        var borrower = $("#borrower");
+        console.log(owner);
+        console.log(item);
+        console.log(borrower);
+        // Wont submit the transaction if fields are blank
+        if (!item || !borrower || !dueDate.val() || !owner) {
+            return;
+        }
+        // Constructing a newTransaction object to hand to the database
+        var newLend = {
+            item_id: item,
+            owner_id: owner,
+            borrower_id: borrower.val(),
+            due_date: dueDate.val()
+        };
+        console.log(newLend);
+        submitLend(newLend);
+    }
 });
-//
-//     function handleAddLend(event) {
-//         event.preventDefault();
-//         // Wont submit the post if we are missing a body, title, or author
-//         if (!item.val().trim() || !owner.val().trim() || !dateDue.val()) {
-//             return;
-//         }
-//
-//         // Constructing a newPost object to hand to the database
-//         var newLend = {
-//             item_id: item
-//                 .val()
-//                 .trim(),
-//             owner_id: owner
-//                 .val()
-//                 .trim(),
-//             borrower_id: borrower.val(),
-//             due_date: dueDate.val()
-//         };
-//         submitLend(newLend);
-//
-//     }
-//
-//     // Submits a new post and brings user to blog page upon completion
-//     function submitLend(Lend) {
-//         $.post("/:user/addBorrow", post, function() {
-//             window.location.href = "/:user";
-//         });
-//     }
-//
-// });
