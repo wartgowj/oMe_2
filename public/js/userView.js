@@ -3,7 +3,7 @@ $(document).ready(function() {
     //Click events
     $(document).unbind().one("click", "button.borrow", handleBorrow);
     $(document).unbind().one("click", "button.lend", handleLend);
-    $(document).on("click", ".delete", handlePostDelete);
+    $(document).on("click", ".update", itemReturned);
 
     $(document).on("click", ".logout", logOut);
 
@@ -73,33 +73,29 @@ $(document).ready(function() {
         console.log(newLend);
         submitLend(newLend);
     }
-});
+
 
 function submitLend(trans) {
     console.log('posting now');
     $.post("/ome/addLend", trans).then(function () {
         location.reload();
-    })
-
-    function getTransactions() {
-        $.get("/ome/"+sessionStorage.id, function (data) {
-            console.log(data);
-        });
-    }
-
-    function deletePost(id) {
-        $.ajax({
-            method: "DELETE",
-            url: "/api/delete/" + id
-        })
-            .then(getTransactions);
-    }
-
-    // This function figures out which post we want to delete and then calls deletePost
-    function handlePostDelete() {
-        var id = $(this)
-            .closest('[data-trans]')
-            .attr("data-trans");
-        deletePost(id);
-    }
+    });
 }
+
+
+
+    // This function figures out which trans to update
+    function itemReturned(event) {
+        event.preventDefault();
+        var id = $(this).data("trans");
+        console.log(id);
+        $.ajax("/api/update/" + id, {
+            type: "PUT"
+        }).then(
+            function() {
+                console.log("updated id ", id);
+                // Reload the page to get the updated list
+                location.reload();
+            });
+    }
+});
