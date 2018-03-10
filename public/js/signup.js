@@ -10,27 +10,7 @@ $(document).ready(function () {
     function handleNewUser(event){
         event.preventDefault();
         checkIfNameTaken(username);
-        //checks that username was entered
-        if (!username.val().trim()) {
-            swal("Oops!", 'Please enter a Username!', 'error');
-            return;
         }
-        //checks that password was entered
-        if (!password.val().trim()) {
-            swal("Oops!", 'Please enter a Password!', 'error');
-            return;
-        }
-        //makes sure passwords match
-        if (password.val().trim() != passwordCheck.val().trim()) {
-            swal("Oops!", 'Passwords Do Not Match!', 'error');
-            return;
-        }
-        if (!image.val().trim()) {
-            swal("Oops!", 'Please enter a mugshot URL!', 'error');
-            return;
-        }
-
-    }
 
     function checkIfNameTaken(username){
         $.get("/api/getusers", function(users){
@@ -39,6 +19,24 @@ $(document).ready(function () {
                     swal("Sorry", 'That username is unavailable', 'error');
                     return;
                 }
+                if (!username.val().trim()) {
+                    swal("Oops!", 'Please enter a Username!', 'error');
+                    return;
+                }
+                //checks that password was entered
+                if (!password.val().trim()) {
+                    swal("Oops!", 'Please enter a Password!', 'error');
+                    return;
+                }
+                //makes sure passwords match
+                if (password.val().trim() != passwordCheck.val().trim()) {
+                    swal("Oops!", 'Passwords Do Not Match!', 'error');
+                    return;
+                }
+                if (!image.val().trim()) {
+                    swal("Oops!", 'Please enter a mugshot URL!', 'error');
+                    return;
+                }     
             } insertUser({
                 name: username.val().trim(),
                 password: password.val().trim(),
@@ -62,7 +60,6 @@ $(document).ready(function () {
         sessionStorage.image = data.image;
 
         let name = data.name;
-        let userRoute = "/" + name;
 
         let userId = data.id;
 
