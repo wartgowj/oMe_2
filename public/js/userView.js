@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
     //Click events
-    $(document).unbind().one("click", "button.borrow", handleBorrow);
-    $(document).unbind().one("click", "button.lend", handleLend);
+    $('#btnAddBorrow').unbind().one("click", handleBorrow);
+    $('#btnAddLend').unbind().one("click", handleLend);
     $(document).on("click", ".update", itemReturned);
 
     $(document).on("click", ".logout", logOut);
