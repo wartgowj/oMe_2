@@ -3,12 +3,49 @@ const db = require("../models");
 const express = require('express');
 const router = express.Router();
 
-
 // Routes
 // =============================================================
 
+router.get("/ome/:userId", function (req, res) {
+    var ownerData;
+    var borrowerData;
+
+    db.Transaction.findAll({
+        include: [db.Item, "owner", "borrower"],
+        where: {
+            owner_id: req.params.userId,
+            // borrower_id: req.params.userId
+        }
+    }).then(function (dbData) {
+        ownerData = dbData;
+
+    }).then(db.Transaction.findAll({
+        include: [db.Item, "owner", "borrower"],
+        where: {
+            borrower_id: req.params.userId,
+            // borrower_id: req.params.userId
+        }
+
+    }).then(function (borrowerData) {
+
+        borrowerData = borrowerData;
+        res.render("userView", { lentItems: ownerData, loanedItems: borrowerData });
+
+    }).catch(function (reason) {
+        console.log(reason);
+    }))
+});
+
+
+
+router.post("/api/authors", function (req, res) {
+    // Create an Author with the data available to us in req.body
+    console.log(req.body);
+
+
 
 router.post("/ome/:user/addBorrow", function (req, res) {
+
     db.Transaction.create(req.body).then(function (dbTrans) {
         res.json(dbTrans);
     });
