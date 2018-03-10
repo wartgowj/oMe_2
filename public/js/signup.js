@@ -9,6 +9,7 @@ $(document).ready(function () {
 
     function handleNewUser(event){
         event.preventDefault();
+        checkIfNameTaken(username);
         //checks that username was entered
         if (!username.val().trim()) {
             swal("Oops!", 'Please enter a Username!', 'error');
@@ -28,11 +29,22 @@ $(document).ready(function () {
             swal("Oops!", 'Please enter a mugshot URL!', 'error');
             return;
         }
-        insertUser({
-            name: username.val().trim(),
-            password: password.val().trim(),
-            image: image.val().trim()
-        });
+
+    }
+
+    function checkIfNameTaken(username){
+        $.get("/api/getusers", function(users){
+            for(i = 0; i < users.length; i++){
+                if(username.val() === users[i].name){
+                    swal("Sorry", 'That username is unavailable', 'error');
+                    return;
+                }
+            } insertUser({
+                name: username.val().trim(),
+                password: password.val().trim(),
+                image: image.val().trim()
+            });
+        })
     }
 
     function insertUser(userData) {
@@ -48,14 +60,17 @@ $(document).ready(function () {
         sessionStorage.userId = data.id;
         sessionStorage.username = data.name;
         sessionStorage.image = data.image;
+
+        let name = data.name;
+        let userRoute = "/" + name;
+
         let userId = data.id;
 
-
-
         let userRoute = "/ome/" + userId;
+
         swal({
             type: 'success',
-            title: 'Welcome ' + data.name + "!",
+            title: 'Welcome ' + name + "!",
             text: 'Thank you for joining oMe!.',
             timer: 3000,
             onOpen: () => {
