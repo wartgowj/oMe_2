@@ -3,6 +3,12 @@ $(document).ready(function() {
     //Click events
     $(document).on("click", "button.addTransaction", handleTransaction);
 
+    $(document).on("click", ".logout", logOut);
+
+    function logOut(){
+        sessionStorage.clear();
+    }
+
     function handleTransaction(event) {
         var itemStr = $("#item").val();
         var itemArr = itemStr.split(',');
