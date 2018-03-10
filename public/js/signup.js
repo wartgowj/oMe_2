@@ -64,8 +64,16 @@ $(document).ready(function () {
         sessionStorage.userId = data.id;
         sessionStorage.username = data.name;
         sessionStorage.image = data.image;
+<<<<<<< HEAD
         let name = data.name;
         let userRoute = "/" + name;
+=======
+        let userId = data.id;
+
+
+
+        let userRoute = "/ome" + userId;
+>>>>>>> 6376c451f9f1d90ad611f60e67f4250a5751f347
         swal({
             type: 'success',
             title: 'Welcome ' + name + "!",
@@ -77,7 +85,6 @@ $(document).ready(function () {
         }).then((result) => {
             window.location.href = userRoute;
         })
-        
       }
 });
 
