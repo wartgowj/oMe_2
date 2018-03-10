@@ -54,33 +54,95 @@ db.sequelize.sync().then(function() {
   });
 });
 
+
+
 // function usersCreate() {
 //   db.User.create({
-//     name: 'Jaime', 
+//     name: 'bryan', 
 //     password: '12345',
-//     image: "image"});
-// }
+//     image: "https://www.pexels.com/photo/grey-fur-kitten-127028/"});
 
-// function createTransaction() {
-//   db.Transaction.create({
-//     owner_id: 19,
-//     item_id: 13,
-//     borrower_id: 29,
-//     due_date: '2018-03-20',
-//     is_returned: false,
+//   db.User.create({
+//     name: 'josh',
+//     password: '12345',
+//     image: "https://www.pexels.com/photo/silver-tabby-cat-lying-on-brown-wooden-surface-126407/"
+//   });
 
+//   db.User.create({
+//     name: 'jamie',
+//     password: '12345',
+//     image: "https://www.pexels.com/photo/animal-cat-face-close-up-feline-416160/"
+//   });
+
+//   db.User.create({
+//     name: 'jen',
+//     password: '12345',
+//     image: "https://www.twenty20.com/photos/58c94916-074f-4e2a-9884-18959587cb06"
 //   });
 // }
 
 // function itemCreate() {
 //   db.Item.create({
-//     name: 'plant',
+//     name: 'ipad',
+//     type: 'thing',
+//     is_borrowed: false,
+//     owner_id: 1
+//   });
+
+//   db.Item.create({
+//     name: 'ipad',
+//     type: 'thing',
+//     is_borrowed: true,
+//     owner_id: 2
+//   });
+
+//   db.Item.create({
+//     name: 'case of beer',
+//     type: 'favor',
+//     is_borrowed: true,
+//     owner_id: 3
+//   });
+
+//   db.Item.create({
+//     name: '20$',
 //     type: 'money',
 //     is_borrowed: true,
-//     owner_id: 19
+//     owner_id: 4
 //   });
 // }
 
-// createTransaction();
 
+// function createTransaction() {
+//   db.Transaction.create({
+//     owner_id: 2,
+//     item_id: 2,
+//     borrower_id: 4,
+//     due_date: '2018-03-20',
+//     is_returned: false,
+//   });
+
+//   db.Transaction.create({
+//     owner_id: 3,
+//     item_id: 3,
+//     borrower_id: 2,
+//     due_date: '2018-03-20',
+//     is_returned: false,
+//   });
+
+//   db.Transaction.create({
+//     owner_id: 4,
+//     item_id: 4,
+//     borrower_id: 1,
+//     due_date: '2018-03-20',
+//     is_returned: false,
+//   });
+// }
+
+
+
+
+
+
+// createTransaction();
+// usersCreate()
 // itemCreate();
