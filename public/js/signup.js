@@ -52,7 +52,7 @@ $(document).ready(function () {
 
 
 
-        let userRoute = "/ome" + userId;
+        let userRoute = "/ome/" + userId;
         swal({
             type: 'success',
             title: 'Welcome ' + data.name + "!",
