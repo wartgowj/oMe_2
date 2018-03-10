@@ -1,3 +1,48 @@
-<h1>Form for entering new transaction</h1>
   <!-- Custom Script -->
   <script src="js/transaction.js" type="text/javascript"></script>
+
+  <h1>Form for entering new transaction</h1>
+  <form class="col s12">
+    <div class="row">
+        <div class="input-field col s8">
+            <i class="material-icons prefix">thumbs_up_down</i>
+            <select id="item">
+                <option value="" disabled selected>item that you might return ...</option>
+                {{#each Item}}
+                    <option value="{{this.id}},{{this.owner_id}}">{{this.name}}</option>
+                {{/each}}
+            </select>
+            <label>Materialize Select</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s6">
+            <i class="material-icons prefix">account_circle</i>
+            <select id="borrower">
+                <option value="" disabled selected>borrower</option>
+                {{#each User}}
+                <option value="{{this.id}}">{{this.name}}<span id="owner"></span></option>
+                {{/each}}
+            </select>
+            <label>Materialize Select</label>
+        </div>
+        <div class="input-field col s6">
+            <input id="dueDate" type="text" class="datepicker">
+            <label for="dueDate">One day in the future that you might get this back</label>
+        </div>
+    </div>
+</form>
+<button href="#!" class="modal-action modal-close waves-effect waves-green btn-flat addTransaction">Add Now</button>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('select').material_select();
+    });
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15, // Creates a dropdown of 15 years to control year,
+        today: 'Today',
+        clear: 'Clear',
+        close: 'Ok',
+        closeOnSelect: false // Close upon selecting a date,
+    });
+</script>
