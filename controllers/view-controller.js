@@ -17,7 +17,8 @@ router.get("/ome/:userId", function (req, res) {
     db.Transaction.findAll({
         include: [db.Item, "owner", "borrower"],
         where: {
-            owner_id: req.params.userId
+            owner_id: req.params.userId,
+            is_returned: false
         }
     }).then(function (dbData) {
         ownerData = dbData;
@@ -25,11 +26,13 @@ router.get("/ome/:userId", function (req, res) {
     }).then(db.Transaction.findAll({
         include: [db.Item, "owner", "borrower"],
         where: {
-            borrower_id: req.params.userId
+            borrower_id: req.params.userId,
+            is_returned: false
         }
     }).then(function (borrowData) {
         borrowerData = borrowData;
     }).then(db.Item.findAll({
+        include: [db.User]
     }).then(function (itemData) {
         items = itemData;
     }).then(db.User.findAll({
@@ -53,13 +56,19 @@ router.post("/ome/addLend", function (req, res) {
     }).catch(function (reason) { console.log(reason) });
 });
 
-router.delete("/api/delete/:transId", function (req, res) {
-    db.Transaction.destroy({
+router.put("/api/update/:transId", function (req, res) {
+    db.Transaction.update({
+        is_returned: true
+    },{
         where: {
             id: req.params.transId
         }
-    }).then(function (req, res) {
-        location.reload();
+    }).then(function (dbTrans) {
+        res.json(dbTrans);
+        console.log(dbTrans);
+    }).catch(function (reason) {
+        console.log(reason);
+    });
 });
-});
+
 module.exports = router;
