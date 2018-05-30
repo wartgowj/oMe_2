@@ -21,6 +21,7 @@ function checkUsers(username, password, userFound) {
                 if(password === users[i].password){
                     sessionStorage.username = users[i].name;
                     sessionStorage.id = users[i].id;
+                    sessionStorage.image = users[i].image;
                   
                     userRoute = "/ome/" + sessionStorage.id;
                     swal({
